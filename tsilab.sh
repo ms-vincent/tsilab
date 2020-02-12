@@ -14,6 +14,8 @@ ADMINPASSWORD=$1
 DEVICE=$2
 export ACCESSPOLICYREADEROBJECTID=$(az ad signed-in-user show --query objectId --output tsv)
 
+echo Adding in Azure IoT CLI extension
+az extension remove --name azure-cli-iot-ext
 az extension add --name azure-cli-iot-ext
 
 echo Creating Resource Group
@@ -52,7 +54,7 @@ az vm run-command invoke -g $DEVICE -n $DEVICE --command-id RunShellScript --scr
 echo - install OPC Simulation Server
 az vm run-command invoke -g $DEVICE -n $DEVICE --command-id RunShellScript --script "/iiotedge/prosys.sh </iiotedge/prosys.txt"
 
-echo You must Remote Desktop to $PUBLICIP with user azureuser and password $ADMINPASSWORD and open File System to /opt/optsys-opc-ua-simulation-server start ProSys OPC UA Simulation
+echo You must Remote Desktop to $PUBLICIP with user azureuser and password $ADMINPASSWORD and open File System to /opt/prosys-opc-ua-simulation-server start ProSys OPC UA Simulation
 echo Verify the publisher module is running by typing: sudo docker ps
 echo Verify the publisher module is connected to the simulator by entering Expert mode from the Options menu and going to the Connection Log tab
 echo Open TSI Explorer from the TSI environment in Azure Portal and check your data is flowing
