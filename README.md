@@ -9,7 +9,7 @@ TSI Lab is Quickstart example of an OPC UA Server sending data through IoT Edge 
 
 2. After completion use Remote Desktop and connect to the VM, with the user name: **azureuser**
 
-3. Start the OPC Server Simulator by opening File System, **/opt/optsys-opc-ua-simulation-server** and double-click **ProSys OPC UA Simulation**.
+3. Start the OPC Server Simulator by opening File System, **/opt/prosys-opc-ua-simulation-server** and double-click **ProSys OPC UA Simulation**.
 
 4. Open **TSI Explorer** from the TSI environment in Azure Portal and check your data is flowing
 
@@ -27,14 +27,14 @@ The parameters include:
 - ``AllowedRemoteIPAddress`` (discover this using [IPIFY](https://api.ipify.org). If you omit this parameter you can update the NSG Rule later).
 
 ```bash
-wget -O tsilab.sh https://raw.githubusercontent.com/cliveg/tsilab/master/config/edgedevicemanifest.json/tsilab.sh
+wget -O tsilab.sh https://raw.githubusercontent.com/cliveg/tsilab/master/config/tsilab.sh
 bash ./tsilab.sh <Password> <EnvironmentName> <AllowedRemoteIPAddress>
 ```
 
 ## Example
 
 ```bash
-wget -O tsilab.sh https://raw.githubusercontent.com/cliveg/tsilab/master/config/edgedevicemanifest.json/tsilab.sh
+wget -O tsilab.sh https://raw.githubusercontent.com/cliveg/tsilab/master/config/tsilab.sh
 bash ./tsilab.sh MyP!ssw0rdIs123 mytsilab123 50.1.2.3
 ```
 
