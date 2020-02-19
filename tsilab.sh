@@ -11,6 +11,8 @@ ADMINPASSWORD=$1
 DEVICE=$2
 export ACCESSPOLICYREADEROBJECTID=$(az ad signed-in-user show --query objectId --output tsv)
 
+echo Adding in Azure IoT CLI extension
+az extension remove --name azure-cli-iot-ext
 az extension add --name azure-cli-iot-ext
 
 echo Creating Resource Group
